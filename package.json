@@ -1,0 +1,25 @@
+{
+  "name": "strive",
+  "version": "1.0.0",
+  "description": "A file manager where you can upload, organize, and share files with anyone.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NotRelix/strive.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NotRelix/strive/issues"
+  },
+  "homepage": "https://github.com/NotRelix/strive#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
