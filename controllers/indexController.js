@@ -1,5 +1,4 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+const { createUser } = require("../db/query");
 
 exports.indexGet = (req, res) => {
   res.render("index", {
@@ -9,12 +8,6 @@ exports.indexGet = (req, res) => {
 
 exports.indexPost = async (req, res) => {
   const { username, password } = req.body;
-  const user = await prisma.users.create({
-    data: {
-      username: username,
-      password: password,
-    },
-  });
-  console.log(user);
+  createUser(username, password);
   res.redirect("/");
 };
