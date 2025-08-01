@@ -7,19 +7,6 @@
   </head>
   <body>
     <h1>Welcome to Strive</h1>
-    <% if (locals.errors) { %>
-      <ul>
-        <% errors.forEach((error) => { %>
-          <li><%= error.msg %></li>
-        <% }) %>
-      </ul>
-    <% } %>
-    <form action="/" method="post">
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" />
-      <label for="password">password</label>
-      <input type="password" name="password" id="password" />
-      <button type="submit">Register</button>
-    </form>
+    <a href="/register">Register</a>
   </body>
 </html>
