@@ -1,5 +1,18 @@
 const prisma = require("./prisma");
 
+async function getUser(username) {
+  try {
+    const user = await prisma.users.findFirst({
+      where: {
+        username: username,
+      },
+    });
+    return user;
+  } catch (err) {
+    console.error("Failed to get user: ", err);
+  }
+}
+
 async function createUser(username, password) {
   try {
     await prisma.users.create({
@@ -14,5 +27,6 @@ async function createUser(username, password) {
 }
 
 module.exports = {
+  getUser,
   createUser,
 };

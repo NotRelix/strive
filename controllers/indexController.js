@@ -10,16 +10,20 @@ exports.indexGet = (req, res) => {
 
 exports.indexPost = [
   registerValidator,
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.render("index", {
-        title: "Strive",
-        errors: errors.array(),
-      });
+  async (req, res, next) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.render("index", {
+          title: "Strive",
+          errors: errors.array(),
+        });
+      }
+      const { username, password } = req.body;
+      await createUser(username, password);
+      return res.redirect("/");
+    } catch (err) {
+      next(err);
     }
-    const { username, password } = req.body;
-    await createUser(username, password);
-    res.redirect("/");
   },
 ];
