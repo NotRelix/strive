@@ -4,7 +4,8 @@
   "description": "A file manager where you can upload, organize, and share files with anyone.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch app.js"
   },
   "repository": {
     "type": "git",
