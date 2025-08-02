@@ -3,4 +3,3 @@ exports.indexGet = (req, res) => {
     title: "Strive",
   });
 };
-
