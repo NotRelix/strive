@@ -1,6 +1,7 @@
 const { validationResult } = require("express-validator");
 const { createUser } = require("../db/query");
 const { registerValidator } = require("../middlewares/validations");
+const bcrypt = require("bcryptjs")
 
 exports.registerUserGet = (req, res) => {
   res.render("register", {
@@ -20,7 +21,8 @@ exports.registerUserPost = [
         });
       }
       const { username, password } = req.body;
-      await createUser(username, password);
+      const hashedPassword = await bcrypt.hash(password, 10);
+      await createUser(username, hashedPassword);
       return res.redirect("/");
     } catch (err) {
       next(err);
