@@ -26,7 +26,21 @@ async function createUser(username, password) {
   }
 }
 
+async function uploadFile(userId, path) {
+  try {
+    await prisma.files.create({
+      data: {
+        file: path,
+        userId: userId,
+      },
+    });
+  } catch (err) {
+    console.error("Failed to upload file: ", err);
+  }
+}
+
 module.exports = {
   getUser,
   createUser,
+  uploadFile,
 };
