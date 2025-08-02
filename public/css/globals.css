@@ -3,9 +3,12 @@
 :root {
   /* Background */
   --primary-bg: rgb(16, 16, 16);
+  --button-bg: rgb(34, 34, 34);
 
   /* Text */
   --primary-text: rgb(230, 230, 230);
+  --secondary-text: rgb(142, 142, 142);
+  --link-text: rgb(69, 125, 255);
 
   /* Border */
   --muted-border: rgb(24, 24, 24);
@@ -19,6 +22,13 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: var(--primary-bg);
   color: var(--primary-text);
+}
+
+main {
+  flex: 1;
 }

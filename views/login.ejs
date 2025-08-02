@@ -4,22 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/partials/navbar.css" />
+    <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
-    <h1>Login</h1>
+    <%- include("partials/navbar") %>
     <% if (locals.errors) { %>
-      <ul>
-        <% errors.forEach((error) => { %>
-          <li><%= error.msg %></li>
-        <% }) %>
-      </ul>
+    <ul>
+      <% errors.forEach((error) => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
     <% } %>
-    <form action="login" method="post">
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" />
-      <label for="password">password</label>
-      <input type="password" name="password" id="password" />
-      <button type="submit">Login</button>
-    </form>
+    <main>
+      <div class="container">
+        <h1 class="container-header">Login</h1>
+        <p class="container-redirect">Don't have an account yet? <a href="/register">Register</a></p>
+        <form action="login" method="post">
+          <div class="input-container">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="jimmybob162"/>
+          </div>
+          <div class="input-container">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter Password" />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
