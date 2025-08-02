@@ -16,7 +16,7 @@ model Users {
 
 model Files {
   id        Int      @id @default(autoincrement())
-  file      String
+  path      String
   createdAt DateTime @default(now())
   users     Users    @relation(fields: [userId], references: [id])
   userId    Int

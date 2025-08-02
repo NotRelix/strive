@@ -30,7 +30,7 @@ async function uploadFile(userId, path) {
   try {
     await prisma.files.create({
       data: {
-        file: path,
+        path: path,
         userId: userId,
       },
     });
