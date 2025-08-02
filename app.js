@@ -16,6 +16,7 @@ app.use(passport.session());
 app.use(setUserToLocals);
 app.use(express.urlencoded({ extended: true }));
 app.use(indexRouter);
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use((err, req, res, next) => {
   console.error(`Oops there seems to be a problem: ${err}`);
