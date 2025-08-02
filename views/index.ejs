@@ -6,8 +6,12 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h1>Welcome to Strive</h1>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
+    <% if (locals.user) { %>
+      <h1>Hello there <%= user.username %></h1>
+    <% } else { %>
+      <h1>Welcome to Strive</h1>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    <% } %>
   </body>
 </html>

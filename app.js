@@ -1,11 +1,19 @@
 const express = require("express");
 const path = require("node:path");
 const indexRouter = require("./routers/indexRouter");
+const passport = require("passport");
+const { setUserToLocals } = require("./middlewares/auth");
+const sessionsMiddleware = require("./config/sessions");
 const app = express();
+require("./config/passport");
+require("dotenv").config();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(sessionsMiddleware);
+app.use(passport.session());
+app.use(setUserToLocals);
 app.use(express.urlencoded({ extended: true }));
 app.use(indexRouter);
 

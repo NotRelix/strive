@@ -1,6 +1,6 @@
 const { validationResult } = require("express-validator");
-const { getUser } = require("../db/query");
 const { loginValidator } = require("../middlewares/validations");
+const passport = require("passport");
 
 exports.loginUserGet = (req, res) => {
   res.render("login", {
@@ -23,11 +23,13 @@ exports.loginUserPost = [
           errors: authError ? [authError] : allErrors,
         });
       }
-      const { username } = req.body;
-      console.log(`Welcome ${username} `);
-      return res.redirect("/");
+      next();
     } catch (err) {
       next(err);
     }
   },
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+  }),
 ];
