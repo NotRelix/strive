@@ -8,9 +8,18 @@ datasource db {
 }
 
 model Users {
-  id       Int    @id @default(autoincrement())
-  username String @unique
+  id       Int     @id @default(autoincrement())
+  username String  @unique
   password String
+  files    Files[]
+}
+
+model Files {
+  id        Int      @id @default(autoincrement())
+  file      String
+  createdAt DateTime @default(now())
+  users     Users    @relation(fields: [userId], references: [id])
+  userId    Int
 }
 
 model Session {
