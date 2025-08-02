@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="/css/form.css" />
   </head>
   <body>
-    <%- include("partials/navbar") %>
-    <% if (locals.errors) { %>
+    <%- include("partials/navbar") %> <% if (locals.errors) { %>
     <ul>
       <% errors.forEach((error) => { %>
       <li><%= error.msg %></li>
@@ -20,19 +19,39 @@
     <main>
       <div class="container">
         <h1 class="container-header">Register</h1>
-        <p class="container-redirect">Already have an account? <a href="/login">Login</a></p>
+        <p class="container-redirect">
+          Already have an account? <a href="/login">Login</a>
+        </p>
         <form action="/register" method="post">
           <div class="input-container">
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="jimmybob162"/>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="jimmybob162"
+              required
+            />
           </div>
           <div class="input-container">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Enter Password" />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter Password"
+              required
+            />
           </div>
           <div class="input-container">
             <label for="confirmPassword">Confirm Password</label>
-            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Enter Password" />
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              placeholder="Enter Password Again"
+              required
+            />
           </div>
           <button type="submit">Register</button>
         </form>

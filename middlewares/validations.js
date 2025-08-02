@@ -32,6 +32,15 @@ const registerValidator = [
     .bail()
     .matches(/[A-Z]/)
     .withMessage("Password must contain at least 1 uppercase"),
+  body("confirmPassword")
+    .trim()
+    .notEmpty()
+    .custom((confirmPassword, { req }) => {
+      if (confirmPassword !== req.body.password) {
+        throw new Error("Passwords don't match");
+      }
+      return true;
+    }),
 ];
 
 const loginValidator = [

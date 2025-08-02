@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="/css/form.css" />
   </head>
   <body>
-    <%- include("partials/navbar") %>
-    <% if (locals.errors) { %>
+    <%- include("partials/navbar") %> <% if (locals.errors) { %>
     <ul>
       <% errors.forEach((error) => { %>
       <li><%= error.msg %></li>
@@ -20,15 +19,29 @@
     <main>
       <div class="container">
         <h1 class="container-header">Login</h1>
-        <p class="container-redirect">Don't have an account yet? <a href="/register">Register</a></p>
+        <p class="container-redirect">
+          Don't have an account yet? <a href="/register">Register</a>
+        </p>
         <form action="/login" method="post">
           <div class="input-container">
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="jimmybob162"/>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="jimmybob162"
+              required
+            />
           </div>
           <div class="input-container">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Enter Password" />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter Password"
+              required
+            />
           </div>
           <button type="submit">Login</button>
         </form>
