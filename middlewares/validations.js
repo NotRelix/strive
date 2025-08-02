@@ -33,6 +33,38 @@ const registerValidator = [
     .withMessage("Password must contain at least 1 uppercase"),
 ];
 
+const loginValidator = [
+  body("username")
+    .trim()
+    .notEmpty()
+    .withMessage(`Username ${emptyErr}`)
+    .bail()
+    .custom(async (username, { req }) => {
+      const user = await getUser(username);
+      if (!user) {
+        throw new Error("Invalid login attempt");
+      }
+      req.foundUser = user;
+      return true;
+    }),
+  body("password")
+    .trim()
+    .notEmpty()
+    .withMessage(`Password ${emptyErr}`)
+    .bail()
+    .custom((password, { req }) => {
+      const user = req.foundUser;
+      if (!user) {
+        throw new Error("Invalid login attempt");
+      }
+      if (password !== user.password) {
+        throw new Error("Wrong password");
+      }
+      return true;
+    }),
+];
+
 module.exports = {
   registerValidator,
+  loginValidator,
 };
