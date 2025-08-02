@@ -1,6 +1,7 @@
 const passport = require("passport");
 const prisma = require("../db/prisma");
 const LocalPassport = require("passport-local").Strategy;
+const bcrypt = require("bcryptjs");
 
 passport.use(
   new LocalPassport(async (username, password, done) => {
@@ -10,11 +11,11 @@ passport.use(
           username: username,
         },
       });
-      console.log(user);
       if (!user) {
         return done(null, false, { message: "Incorrect username" });
       }
-      if (password !== user.password) {
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
         return done(null, false, { message: "Incorrect password" });
       }
       done(null, user);

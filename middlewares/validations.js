@@ -1,5 +1,6 @@
 const { body } = require("express-validator");
 const { getUser } = require("../db/query");
+const bcrypt = require("bcryptjs");
 
 const emptyErr = "must not be empty";
 
@@ -52,12 +53,13 @@ const loginValidator = [
     .notEmpty()
     .withMessage(`Password ${emptyErr}`)
     .bail()
-    .custom((password, { req }) => {
+    .custom(async (password, { req }) => {
       const user = req.foundUser;
       if (!user) {
         throw new Error("Invalid login attempt");
       }
-      if (password !== user.password) {
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
         throw new Error("Wrong password");
       }
       return true;
