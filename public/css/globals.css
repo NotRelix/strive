@@ -12,6 +12,9 @@
 
   /* Border */
   --muted-border: rgb(24, 24, 24);
+
+  /* Hover */
+  --button-hover: rgb(39, 39, 39);
 }
 
 * {
@@ -31,4 +34,5 @@ body {
 
 main {
   flex: 1;
+  padding: 16px;
 }

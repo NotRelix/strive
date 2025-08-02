@@ -3,6 +3,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 24px;
 }
 
 .container {
@@ -56,4 +57,18 @@ form button {
   width: fit-content;
   padding: 12px 36px;
   font-weight: 600;
+}
+
+form button:hover {
+  background-color: var(--button-hover);
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .container-redirect {
+    font-size: 14px;
+  }
 }
