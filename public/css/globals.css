@@ -11,9 +11,11 @@
   --link-text: rgb(69, 125, 255);
 
   /* Border */
+  --primary-border: rgb(29, 29, 29);
   --muted-border: rgb(24, 24, 24);
 
   /* Hover */
+  --primary-hover: rgb(21, 21, 21);
   --button-hover: rgb(39, 39, 39);
 }
 

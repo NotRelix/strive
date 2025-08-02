@@ -2,8 +2,15 @@
   <div class="logo-container">
     <a href="/">Strive</a>
   </div>
-  <div class="links">
+  <div class="nav-links">
+    <% if (locals.user) { %>
+    <a href="/">Placeholder</a>
+    <a href="/">Placeholder</a>
+    <a href="/logout">Logout</a>
+    <% } else { %>
     <a href="/login">Login</a>
     <a href="/register">Register</a>
+    <% } %>
   </div>
+  <%- include("navbarMenu.ejs") %>
 </nav>

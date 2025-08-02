@@ -6,8 +6,13 @@ nav {
   border-bottom: 1px solid var(--muted-border);
 }
 
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+
 .logo-container a,
-.links a {
+.nav-links a {
   color: var(--primary-text);
   text-decoration: none;
 }
@@ -17,8 +22,8 @@ nav {
   font-weight: 600;
 }
 
-.links {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
 }
