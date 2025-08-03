@@ -21,7 +21,15 @@
     </ul>
     <% } %>
     <main>
-      <div class="container"><%- include("partials/tools") %></div>
+      <div class="container">
+        <%- include("partials/tools") %>
+        <div class="drive-contents">
+          <h1>My Drive</h1>
+          <% files.forEach((file) => { %>
+            <p><%= file.path %></p>
+          <% }) %>
+        </div>
+      </div>
     </main>
   </body>
 </html>

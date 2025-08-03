@@ -39,8 +39,22 @@ async function uploadFile(userId, path) {
   }
 }
 
+async function getFiles(userId) {
+  try {
+    const files = await prisma.files.findMany({
+      where: {
+        userId: userId,
+      },
+    });
+    return files;
+  } catch (err) {
+    console.error("Failed to get files: ", err);
+  }
+}
+
 module.exports = {
   getUser,
   createUser,
   uploadFile,
+  getFiles,
 };
