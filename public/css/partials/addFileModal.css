@@ -13,7 +13,7 @@
 }
 
 .modal-content {
-  padding: 8px;
+  padding: 16px;
   border-radius: 4px;
   position: absolute;
   top: 50%;
@@ -28,4 +28,47 @@
 .show {
   opacity: 1;
   pointer-events: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.modal-close {
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background-color: var(--primary-hover);
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 16px;
+}
+
+input[type=file]::file-selector-button,
+.modal-content button {
+  background-color: var(--button-bg);
+  color: var(--secondary-text-light);
+  border: 1px solid var(--primary-button-border);
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+input[type=file]::file-selector-button:hover,
+.modal-content button:hover {
+  background-color: var(--button-hover);
 }
