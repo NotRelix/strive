@@ -1,9 +1,13 @@
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   padding: 8px 24px;
+  background-color: var(--primary-bg);
   border-bottom: 1px solid var(--muted-border);
+  position: fixed;
+  z-index: 100;
 }
 
 .nav-links {
@@ -20,10 +24,4 @@ nav {
 .logo-container {
   font-size: 24px;
   font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
 }
