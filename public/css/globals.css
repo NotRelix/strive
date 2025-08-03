@@ -41,3 +41,8 @@ body {
 main {
   flex: 1;
 }
+
+.size-6 {
+  width: 16px;
+  height: 16px;
+}

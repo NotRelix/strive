@@ -12,6 +12,10 @@
   gap: 4px;
 }
 
+.tools-icon {
+  margin-right: 8px;
+}
+
 .tools-buttons button {
   display: flex;
   padding: 8px;
@@ -20,6 +24,7 @@
   border: none;
   border: 1px solid var(--primary-button-border);
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .tools-buttons button:hover {
