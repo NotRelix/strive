@@ -3,13 +3,12 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 24px;
+  padding: inherit 24px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
   max-width: 400px;
   width: 100%;
 }

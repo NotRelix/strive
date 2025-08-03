@@ -29,7 +29,7 @@ exports.loginUserPost = [
     }
   },
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/folders",
     failureRedirect: "/login",
   }),
 ];
