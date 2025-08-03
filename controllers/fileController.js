@@ -10,14 +10,15 @@ exports.fileUploadPost = [
   async (req, res, next) => {
     try {
       const errors = validationResult(req);
+      const referer = req.get("Referer") || "/";
       if (!errors.isEmpty()) {
         req.flash("errors", errors.array());
-        const referer = req.get("Referer") || "/";
         return res.redirect(referer);
       }
       const id = req.user.id;
       const path = req.file.path;
       await uploadFile(id, path);
+      return res.redirect(referer)
     } catch (err) {
       next(err);
     }
