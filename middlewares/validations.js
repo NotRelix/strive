@@ -75,7 +75,23 @@ const loginValidator = [
     }),
 ];
 
+const fileValidator = [
+  body("file").custom((file, { req }) => {
+    if (!req.file) {
+      throw new Error("File is required");
+    }
+
+    const maxSize = 50 * 1024 * 1024;
+    if (req.file.size > maxSize) {
+      throw new Error("File must be under 50 MB");
+    }
+
+    return true;
+  }),
+];
+
 module.exports = {
   registerValidator,
   loginValidator,
+  fileValidator,
 };

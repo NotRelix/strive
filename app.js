@@ -4,6 +4,7 @@ const indexRouter = require("./routers/indexRouter");
 const passport = require("passport");
 const { setUserToLocals } = require("./middlewares/auth");
 const sessionsMiddleware = require("./config/sessions");
+const flash = require("connect-flash");
 const app = express();
 require("./config/passport");
 require("dotenv").config();
@@ -15,6 +16,7 @@ app.use(sessionsMiddleware);
 app.use(passport.session());
 app.use(setUserToLocals);
 app.use(express.urlencoded({ extended: true }));
+app.use(flash());
 app.use(indexRouter);
 app.use(express.static(path.join(__dirname, "public")));
 
