@@ -13,6 +13,7 @@
 }
 
 .modal-content {
+  background-color: var(--primary-bg);
   padding: 16px;
   border-radius: 4px;
   position: absolute;
@@ -20,7 +21,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid var(--primary-border);
-  width: 400px;
+  max-width: 400px;
+  width: calc(100% - 32px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   z-index: 300;
 }
@@ -34,6 +36,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
+}
+
+.modal-header h1 {
+  font-size: 24px;
 }
 
 .modal-close {
