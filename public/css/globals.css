@@ -1,22 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
   /* Background */
   --primary-bg: rgb(16, 16, 16);
   --button-bg: rgb(34, 34, 34);
+  --button-bg-dark: rgb(24, 24, 24);
 
   /* Text */
   --primary-text: rgb(230, 230, 230);
   --secondary-text: rgb(142, 142, 142);
+  --secondary-text-light: rgb(205, 205, 205);
   --link-text: rgb(69, 125, 255);
 
   /* Border */
   --primary-border: rgb(29, 29, 29);
+  --primary-button-border: rgb(48, 48, 48);
   --muted-border: rgb(24, 24, 24);
 
   /* Hover */
   --primary-hover: rgb(21, 21, 21);
   --button-hover: rgb(39, 39, 39);
+  --button-dark-hover: rgb(29, 29, 29);
 }
 
 * {
@@ -29,12 +33,11 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--primary-bg);
   color: var(--primary-text);
 }
 
 main {
   flex: 1;
-  padding: 72px 16px;
 }

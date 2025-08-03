@@ -1,0 +1,10 @@
+main {
+  justify-content: start;
+  align-items: start;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
