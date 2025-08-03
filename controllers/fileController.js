@@ -16,8 +16,8 @@ exports.fileUploadPost = [
         return res.redirect(referer);
       }
       const id = req.user.id;
-      const path = req.file.path;
-      await uploadFile(id, path);
+      const { path, originalname, size } = req.file;
+      await uploadFile(id, path, originalname, size);
       return res.redirect(referer)
     } catch (err) {
       next(err);

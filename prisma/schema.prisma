@@ -18,6 +18,8 @@ model Files {
   id        Int      @id @default(autoincrement())
   path      String
   createdAt DateTime @default(now())
+  fileName  String
+  size      Float
   users     Users    @relation(fields: [userId], references: [id])
   userId    Int
 }
