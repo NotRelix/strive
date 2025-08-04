@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="/css/form.css" />
   </head>
   <body>
-    <%- include("partials/navbar") %> <% if (locals.errors) { %>
+    <%- include("partials/navbar") %>
+    <% if (locals.errors) { %>
     <ul>
       <% errors.forEach((error) => { %>
       <li><%= error.msg %></li>

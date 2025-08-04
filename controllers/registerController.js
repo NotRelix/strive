@@ -1,7 +1,7 @@
 const { validationResult } = require("express-validator");
 const { createUser } = require("../db/query");
 const { registerValidator } = require("../middlewares/validations");
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
 
 exports.registerUserGet = (req, res) => {
   res.render("register", {

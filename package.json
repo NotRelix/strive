@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch app.js"
+    "start": "node --watch app.js",
+    "format": "npx prettier --plugin=prettier-plugin-ejs --write ."
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "multer": "^2.0.2",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
+    "prettier-plugin-ejs": "^1.0.3",
     "prisma": "^6.13.0"
   }
 }

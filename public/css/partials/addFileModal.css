@@ -60,11 +60,11 @@
   gap: 16px;
 }
 
-input[type=file]::file-selector-button {
+input[type="file"]::file-selector-button {
   margin-right: 16px;
 }
 
-input[type=file]::file-selector-button,
+input[type="file"]::file-selector-button,
 .modal-content button {
   background-color: var(--button-bg);
   color: var(--secondary-text-light);
@@ -74,7 +74,7 @@ input[type=file]::file-selector-button,
   cursor: pointer;
 }
 
-input[type=file]::file-selector-button:hover,
+input[type="file"]::file-selector-button:hover,
 .modal-content button:hover {
   background-color: var(--button-hover);
 }

@@ -16,7 +16,7 @@ exports.loginUserPost = [
       if (!errors.isEmpty()) {
         const allErrors = errors.array();
         const authError = allErrors.find(
-          (error) => error.msg === "Invalid login attempt"
+          (error) => error.msg === "Invalid login attempt",
         );
         return res.render("login", {
           title: "Login",

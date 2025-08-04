@@ -6,12 +6,12 @@ const { redirectIfAuthenticated } = require("../middlewares/auth");
 registerRouter.get(
   "/",
   redirectIfAuthenticated,
-  registerController.registerUserGet
+  registerController.registerUserGet,
 );
 registerRouter.post(
   "/",
   redirectIfAuthenticated,
-  registerController.registerUserPost
+  registerController.registerUserPost,
 );
 
 module.exports = registerRouter;

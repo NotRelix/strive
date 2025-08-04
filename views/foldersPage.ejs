@@ -12,8 +12,10 @@
     <script src="/js/addFileModal.js" defer></script>
   </head>
   <body>
-    <%- include("partials/navbar") %> <%- include("partials/addFileModal") %> 
-    <% if (locals.errors) { %>
+    <%- include("partials/navbar") %>
+    <%- include("partials/addFileModal") %>
+    <%
+    if (locals.errors) { %>
     <ul>
       <% errors.forEach((error) => { %>
       <li><%= error.msg %></li>
@@ -26,12 +28,8 @@
         <div class="drive-contents">
           <h1>My Drive</h1>
           <% files.forEach((file) => { %>
-            <!-- TODO: Refactor this to fileCard.ejs -->
-            <div class="file-card">
-              <div><%= file.fileName %></div>
-              <span><%= file.size %></span>
-              <span><%= file.createdAt %></span>
-            </div>
+          <%- include("partials/fileCard",
+          {file}) %>
           <% }) %>
         </div>
       </div>
