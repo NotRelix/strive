@@ -1,5 +1,8 @@
 <div class="file-card">
-  <div class="file-name"><%= file.fileName %></div>
+  <div class="file-name">
+    <%- include("fileIcon", {file}) %>
+    <span> <%= file.fileName %> </span>
+  </div>
   <span class="file-size"><%= file.formatSize %></span>
   <span class="file-created-at"><%= file.formatCreatedAt %></span>
 </div>
