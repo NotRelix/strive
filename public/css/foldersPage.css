@@ -8,3 +8,18 @@ main {
   display: flex;
   height: 100%;
 }
+
+.drive-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  padding: 16px;
+}
+
+.drive-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: scroll;
+}

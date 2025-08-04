@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/foldersPage.css" />
     <link rel="stylesheet" href="/css/partials/tools.css" />
     <link rel="stylesheet" href="/css/partials/addFileModal.css" />
+    <link rel="stylesheet" href="/css/partials/fileCard.css" />
     <script src="/js/addFileModal.js" defer></script>
   </head>
   <body>
@@ -25,12 +26,14 @@
     <main>
       <div class="container">
         <%- include("partials/tools") %>
-        <div class="drive-contents">
+        <div class="drive-container">
           <h1>My Drive</h1>
-          <% files.forEach((file) => { %>
-          <%- include("partials/fileCard",
-          {file}) %>
-          <% }) %>
+          <div class="drive-contents">
+            <% files.forEach((file) => { %>
+            <%- include("partials/fileCard",
+            {file}) %>
+            <% }) %>
+          </div>
         </div>
       </div>
     </main>
