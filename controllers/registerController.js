@@ -15,10 +15,10 @@ exports.registerUserPost = [
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.render("register", {
-          title: "Register",
-          errors: errors.array(),
-        });
+        req.flash("errors", errors.array());
+        return req.session.save(() => {
+          res.redirect("register");
+        })
       }
       const { username, password } = req.body;
       const hashedPassword = await bcrypt.hash(password, 10);

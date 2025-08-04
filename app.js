@@ -17,6 +17,10 @@ app.use(passport.session());
 app.use(setUserToLocals);
 app.use(express.urlencoded({ extended: true }));
 app.use(flash());
+app.use((req, res, next) => {
+  res.locals.errors = req.flash("errors");
+  next();
+})
 app.use(indexRouter);
 app.use(express.static(path.join(__dirname, "public")));
 
