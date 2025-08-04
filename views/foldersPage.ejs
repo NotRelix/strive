@@ -18,14 +18,7 @@
   <body>
     <%- include("partials/navbar") %>
     <%- include("partials/addFileModal") %>
-    <%
-    if (locals.errors) { %>
-    <ul>
-      <% errors.forEach((error) => { %>
-      <li><%= error.msg %></li>
-      <% }) %>
-    </ul>
-    <% } %>
+    <%- include("partials/errors") %>
     <main>
       <div class="container">
         <%- include("partials/tools") %>

@@ -57,6 +57,7 @@ form button {
   width: fit-content;
   padding: 12px 36px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 form button:hover {

@@ -10,13 +10,7 @@
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <% if (locals.errors) { %>
-    <ul>
-      <% errors.forEach((error) => { %>
-      <li><%= error.msg %></li>
-      <% }) %>
-    </ul>
-    <% } %>
+    <%- include("partials/errors") %>
     <main>
       <div class="container">
         <h1 class="container-header">Login</h1>

@@ -9,11 +9,14 @@ plusBtn.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (e) => {
-  if (!e.target.closest(".plus-btn-container") && e.target !== plusBtnMenuContent) {
+  if (
+    !e.target.closest(".plus-btn-container") &&
+    e.target !== plusBtnMenuContent
+  ) {
     plusBtnMenu.classList.remove("show-content");
   }
 });
 
 plusAddFileBtn.addEventListener("click", () => {
   addFileModal.classList.add("show");
-})
+});

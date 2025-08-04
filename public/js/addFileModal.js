@@ -5,11 +5,15 @@ const backdrop = document.querySelector(".backdrop");
 
 addFileBtn.addEventListener("click", () => {
   addFileModal.classList.add("show");
-  backdrop.classList.add("show")
+  backdrop.classList.add("show");
 });
 
 document.addEventListener("click", (e) => {
-  if (e.target === addFileModal || e.target === addFileCloseBtn || e.target === backdrop) {
+  if (
+    e.target === addFileModal ||
+    e.target === addFileCloseBtn ||
+    e.target === backdrop
+  ) {
     addFileModal.classList.remove("show");
     backdrop.classList.remove("show");
   }
