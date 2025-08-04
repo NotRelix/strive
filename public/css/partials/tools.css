@@ -30,3 +30,10 @@
 .tools-buttons button:hover {
   background-color: var(--button-dark-hover);
 }
+
+@media (max-width: 820px) {
+  .tools-container {
+    display: none;
+  }
+}
+

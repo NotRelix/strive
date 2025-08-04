@@ -43,3 +43,15 @@
 .menu-btn:hover {
   background-color: var(--button-hover);
 }
+
+@media (max-width: 820px) {
+  .file-size {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .file-created-at {
+    display: none;
+  }
+}

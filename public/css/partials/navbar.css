@@ -3,7 +3,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 8px 24px;
+  padding: 8px 16px;
   background-color: var(--primary-bg);
   border-bottom: 1px solid var(--primary-border);
   z-index: 100;
