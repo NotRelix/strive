@@ -1,0 +1,21 @@
+.plus-btn-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 32px;
+  border-radius: 50%;
+  background-color: var(--button-bg-light);
+  padding: 16px;
+  display: none;
+  cursor: pointer;
+}
+
+.plus-btn-container:hover {
+  background-color: var(--button-light-hover);
+}
+
+@media (max-width: 820px) {
+  .plus-btn-container {
+    display: flex;
+  }
+}
