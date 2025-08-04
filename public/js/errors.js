@@ -1,15 +1,15 @@
-const errorBtns = document.querySelectorAll(".close-btn");
+const closeBtns = document.querySelectorAll(".close-btn");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const errorItems = document.querySelectorAll(".errors-container li");
-  errorItems.forEach((item, index) => {
+  const notifications = document.querySelectorAll(".notification-container li");
+  notifications.forEach((item, index) => {
     setTimeout(() => {
       item.classList.add("fade-in");
     }, index * 50);
   });
 });
 
-errorBtns.forEach((btn) => {
+closeBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const parent = e.target.parentElement;
     parent.style.opacity = "0";

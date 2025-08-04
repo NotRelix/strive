@@ -1,4 +1,4 @@
-.errors-container {
+.notification-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -10,21 +10,24 @@
   z-index: 1000;
 }
 
-.error {
+.notification-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   font-size: 14px;
-  background-color: var(--error-bg);
   padding: 16px 24px;
   border-radius: 4px;
   min-width: 400px;
   opacity: 0;
   transform: translateX(150%);
   transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+  opacity 0.3s ease,
+  transform 0.3s ease;
+}
+
+.error {
+  background-color: var(--error-bg);
 }
 
 .close-btn {
@@ -43,7 +46,7 @@
     right: 0;
   }
 
-  .error {
+  .notification-card {
     font-size: 14px;
     min-width: 0;
     width: 100%;
