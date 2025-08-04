@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 errorBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const parent = e.target.parentElement;
-    console.log("test");
     parent.style.opacity = "0";
     parent.style.transform = "translateX(100%)";
     setTimeout(() => {

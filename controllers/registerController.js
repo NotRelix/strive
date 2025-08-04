@@ -18,7 +18,7 @@ exports.registerUserPost = [
         req.flash("errors", errors.array());
         return req.session.save(() => {
           res.redirect("register");
-        })
+        });
       }
       const { username, password } = req.body;
       const hashedPassword = await bcrypt.hash(password, 10);

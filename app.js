@@ -13,14 +13,14 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(sessionsMiddleware);
-app.use(passport.session());
-app.use(setUserToLocals);
-app.use(express.urlencoded({ extended: true }));
 app.use(flash());
 app.use((req, res, next) => {
   res.locals.errors = req.flash("errors");
   next();
-})
+});
+app.use(passport.session());
+app.use(setUserToLocals);
+app.use(express.urlencoded({ extended: true }));
 app.use(indexRouter);
 app.use(express.static(path.join(__dirname, "public")));
 

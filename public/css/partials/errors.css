@@ -7,6 +7,7 @@
   right: 0;
   list-style: none;
   margin: 16px;
+  z-index: 1000;
 }
 
 .error {
@@ -14,6 +15,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  font-size: 14px;
   background-color: var(--error-bg);
   padding: 16px 24px;
   border-radius: 4px;
@@ -33,4 +35,17 @@
 .fade-in {
   transform: translateX(0);
   opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .errors-container {
+    left: 0;
+    right: 0;
+  }
+
+  .error {
+    font-size: 14px;
+    min-width: 0;
+    width: 100%;
+  }
 }

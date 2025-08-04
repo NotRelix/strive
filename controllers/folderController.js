@@ -13,7 +13,6 @@ function isZip(fileName) {
 }
 
 exports.folderListGet = async (req, res) => {
-  const errors = req.flash("errors");
   const userId = req.user.id;
   const files = await getFiles(userId);
   const formattedFiles = files.map((file) => ({
@@ -25,7 +24,6 @@ exports.folderListGet = async (req, res) => {
   }));
   res.render("foldersPage", {
     title: "Strive",
-    errors: errors,
     files: formattedFiles,
   });
 };

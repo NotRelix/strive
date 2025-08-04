@@ -13,9 +13,10 @@ exports.fileUploadPost = [
       const referer = req.get("Referer") || "/";
       if (!errors.isEmpty()) {
         req.flash("errors", errors.array());
+        console.log("In controller: ", errors.array());
         return req.session.save(() => {
           res.redirect(referer);
-        })
+        });
       }
       const id = req.user.id;
       const { path, originalname, size } = req.file;

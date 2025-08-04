@@ -76,7 +76,7 @@ const loginValidator = [
 ];
 
 const fileValidator = [
-  body("file").custom((file, { req }) => {
+  body("file").custom((_, { req }) => {
     if (!req.file) {
       throw new Error("File is required");
     }
