@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   errorItems.forEach((item, index) => {
     setTimeout(() => {
       item.classList.add("fade-in");
-    }, index * 100);
+    }, index * 50);
   });
 });
 
@@ -16,6 +16,6 @@ errorBtns.forEach((btn) => {
     parent.style.transform = "translateX(100%)";
     setTimeout(() => {
       parent.style.display = "none";
-    }, 600);
+    }, 300);
   });
 });
