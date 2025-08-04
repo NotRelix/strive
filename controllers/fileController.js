@@ -13,7 +13,9 @@ exports.fileUploadPost = [
       const referer = req.get("Referer") || "/";
       if (!errors.isEmpty()) {
         req.flash("errors", errors.array());
-        return res.redirect(referer);
+        return req.session.save(() => {
+          res.redirect(referer);
+        })
       }
       const id = req.user.id;
       const { path, originalname, size } = req.file;
