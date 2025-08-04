@@ -2,6 +2,7 @@ main {
   justify-content: start;
   align-items: start;
   height: 100%;
+  overflow: hidden;
 }
 
 .container {
@@ -26,5 +27,5 @@ main {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }

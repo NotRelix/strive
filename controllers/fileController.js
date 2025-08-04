@@ -13,7 +13,6 @@ exports.fileUploadPost = [
       const referer = req.get("Referer") || "/";
       if (!errors.isEmpty()) {
         req.flash("errors", errors.array());
-        console.log("In controller: ", errors.array());
         return req.session.save(() => {
           res.redirect(referer);
         });
@@ -21,7 +20,10 @@ exports.fileUploadPost = [
       const id = req.user.id;
       const { path, originalname, size } = req.file;
       await uploadFile(id, path, originalname, size);
-      return res.redirect(referer);
+      req.flash("success", [{ msg: "Successfully uploaded file" }]);
+      return req.session.save(() => {
+        res.redirect(referer);
+      });
     } catch (err) {
       next(err);
     }

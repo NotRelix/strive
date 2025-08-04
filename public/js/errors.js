@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       item.classList.add("fade-in");
     }, index * 50);
+    setTimeout(() => {
+      item.style.opacity = "0";
+      item.style.transform = "translateX(100%)";
+      setTimeout(() => {
+        item.style.display = "none";
+      }, 300);
+    }, 5000);
   });
 });
 

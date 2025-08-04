@@ -30,6 +30,10 @@
   background-color: var(--error-bg);
 }
 
+.success {
+  background-color: var(--success-bg);
+}
+
 .close-btn {
   font-size: 22px;
   cursor: pointer;
