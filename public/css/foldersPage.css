@@ -9,6 +9,11 @@ main {
   height: 100%;
 }
 
+.drive-name {
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .drive-container {
   display: flex;
   flex-direction: column;
