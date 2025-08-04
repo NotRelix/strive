@@ -6,6 +6,7 @@
   --button-bg: rgb(34, 34, 34);
   --button-bg-dark: rgb(24, 24, 24);
   --button-bg-light: rgb(50, 50, 50);
+  --error-bg: rgb(236, 57, 57);
 
   /* Text */
   --primary-text: rgb(230, 230, 230);

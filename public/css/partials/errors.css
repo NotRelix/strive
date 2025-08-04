@@ -1,0 +1,13 @@
+.errors-container {
+  position: fixed;
+  right: 0;
+  list-style: none;
+  margin: 16px;
+}
+
+.error {
+  background-color: var(--error-bg);
+  padding: 16px 24px;
+  border-radius: 4px;
+  min-width: 300px;
+}
