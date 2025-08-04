@@ -28,8 +28,19 @@ exports.loginUserPost = [
       next(err);
     }
   },
-  passport.authenticate("local", {
-    successRedirect: "/folders",
-    failureRedirect: "/login",
-  }),
+  (req, res, next) => {
+    passport.authenticate("local", (err, user, info) => {
+      if (err) return next(err);
+      if (!user) {
+        res.redirect("/login");
+      }
+      req.logIn(user, (err) => {
+        if (err) return next(err);
+        req.flash("success", [{ msg: "Welcome back!" }]);
+        return req.session.save(() => {
+          res.redirect("/folders");
+        });
+      });
+    })(req, res, next);
+  },
 ];
