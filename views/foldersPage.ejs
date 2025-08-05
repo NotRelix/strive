@@ -27,8 +27,12 @@
         <%- include("partials/success") %>
         <div class="drive-container">
           <h1 class="drive-name">My Drive</h1>
-          <% if (files && files.length > 0) { %>
+          <% if (folders && folders.length > 0 || files && files.length > 0) { %>
             <div class="drive-contents">
+              <% folders.forEach((folder) => { %>
+                <%- include("partials/folderCard",
+                {folder}) %>
+              <% }) %>
               <% files.forEach((file) => { %>
               <%- include("partials/fileCard",
               {file}) %>

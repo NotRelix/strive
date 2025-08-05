@@ -25,6 +25,7 @@ exports.folderListGet = async (req, res) => {
   res.render("foldersPage", {
     title: "Strive",
     files: formattedFiles,
+    folders: root.subfolders,
   });
 };
 
@@ -38,7 +39,6 @@ exports.folderAddPost = async (req, res, next) => {
       const rootFolder = await getRootFolder(id);
       parentId = rootFolder.id;
     }
-    console.log("The stuff: ", userId, folderName, parentId);
     await addFolder(userId, folderName, parentId);
   } catch (err) {
     next(err);
