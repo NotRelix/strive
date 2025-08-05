@@ -29,3 +29,8 @@ main {
   gap: 4px;
   overflow-y: auto;
 }
+
+.empty-drive-container {
+  text-align: center;
+  color: var(--secondary-text-light);
+}

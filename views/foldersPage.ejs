@@ -26,12 +26,18 @@
         <%- include("partials/success") %>
         <div class="drive-container">
           <h1 class="drive-name">My Drive</h1>
-          <div class="drive-contents">
-            <% files.forEach((file) => { %>
-            <%- include("partials/fileCard",
-            {file}) %>
-            <% }) %>
-          </div>
+          <% if (files && files.length > 0) { %>
+            <div class="drive-contents">
+              <% files.forEach((file) => { %>
+              <%- include("partials/fileCard",
+              {file}) %>
+              <% }) %>
+            </div>
+          <% } else { %>
+            <div class="empty-drive-container">
+              <span>There's nothing here</span>
+            </div>
+          <% } %>
         </div>
         <%- include("partials/drivePlusBtn") %>
         <%- include("partials/backdrop") %>
