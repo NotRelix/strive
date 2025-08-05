@@ -1,14 +1,14 @@
-<div class="add-file-modal modal">
+<div class="add-folder-modal modal">
   <div class="modal-content">
     <div class="modal-header">
-      <h1>Add File</h1>
+      <h1>Add Folder</h1>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="modal-close add-file-close-btn"
+        class="modal-close add-folder-close-btn"
       >
         <path
           stroke-linecap="round"
@@ -23,8 +23,8 @@
       method="post"
       enctype="multipart/form-data"
     >
-      <input type="file" name="file" required />
-      <button type="submit">Upload</button>
+      <input type="text" name="folderName" required />
+      <button type="submit">Add</button>
     </form>
   </div>
 </div>

@@ -1,7 +1,11 @@
 const addFileBtn = document.querySelector(".add-file-btn");
 const addFileModal = document.querySelector(".add-file-modal");
 const addFileForm = document.querySelector(".add-file-form");
-const addFileCloseBtn = addFileModal.querySelector(".modal-close");
+const addFileCloseBtn = addFileModal.querySelector(".add-file-close-btn");
+
+const addFolderBtn = document.querySelector(".add-folder-btn");
+const addFolderModal = document.querySelector(".add-folder-modal");
+const addFolderCloseBtn = document.querySelector(".add-folder-close-btn");
 const backdrop = document.querySelector(".backdrop");
 
 addFileBtn.addEventListener("click", () => {
@@ -14,6 +18,11 @@ addFileForm.addEventListener("submit", () => {
   backdrop.classList.remove("show");
 });
 
+addFolderBtn.addEventListener("click", () => {
+  addFolderModal.classList.add("show");
+  backdrop.classList.add("show");
+});
+
 document.addEventListener("click", (e) => {
   if (
     e.target === addFileModal ||
@@ -21,6 +30,15 @@ document.addEventListener("click", (e) => {
     e.target === backdrop
   ) {
     addFileModal.classList.remove("show");
+    backdrop.classList.remove("show");
+  }
+
+  if (
+    e.target === addFolderModal ||
+    e.target === addFolderCloseBtn ||
+    e.target === backdrop
+  ) {
+    addFolderModal.classList.remove("show");
     backdrop.classList.remove("show");
   }
 });
