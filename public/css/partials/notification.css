@@ -45,7 +45,7 @@
 }
 
 @media (max-width: 480px) {
-  .errors-container {
+  .notification-container {
     left: 0;
     right: 0;
   }
