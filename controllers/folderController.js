@@ -1,5 +1,5 @@
 const { formatBytes } = require("bytes-formatter");
-const { getRootFolder } = require("../db/query");
+const { getRootFolder, addFolder } = require("../db/query");
 const { formatShortDate } = require("../public/js/formatDate");
 
 const imageTypes = ["png", "jpg", "jpeg", "webp"];
@@ -26,4 +26,21 @@ exports.folderListGet = async (req, res) => {
     title: "Strive",
     files: formattedFiles,
   });
+};
+
+exports.folderAddPost = async (req, res, next) => {
+  try {
+    const { folderName } = req.body;
+    const userId = req.user.id;
+    let parentId = req.params?.folderId;
+    if (!parentId) {
+      const id = req.user.id;
+      const rootFolder = await getRootFolder(id);
+      parentId = rootFolder.id;
+    }
+    console.log("The stuff: ", userId, folderName, parentId);
+    await addFolder(userId, folderName, parentId);
+  } catch (err) {
+    next(err);
+  }
 };

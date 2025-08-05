@@ -78,11 +78,25 @@ async function getRootFolder(userId) {
       include: {
         files: true,
         subfolders: true,
-      }
+      },
     });
     return rootFolder;
   } catch (err) {
     console.error("Failed to get root folder: ", err);
+  }
+}
+
+async function addFolder(userId, name, parentId) {
+  try {
+    await prisma.folders.create({
+      data: {
+        userId,
+        name,
+        parentId,
+      },
+    });
+  } catch (err) {
+    console.error("Failed to add folder: ", err);
   }
 }
 
@@ -92,4 +106,5 @@ module.exports = {
   uploadFile,
   getFiles,
   getRootFolder,
+  addFolder,
 };
