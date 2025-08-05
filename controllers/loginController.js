@@ -36,7 +36,7 @@ exports.loginUserPost = [
       }
       req.logIn(user, (err) => {
         if (err) return next(err);
-        req.flash("success", [{ msg: "Welcome back!" }]);
+        req.flash("success", [{ msg: "Successfully logged in" }]);
         return req.session.save(() => {
           res.redirect("/folders");
         });

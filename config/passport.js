@@ -6,7 +6,6 @@ const bcrypt = require("bcryptjs");
 passport.use(
   new LocalPassport(async (username, password, done) => {
     try {
-      console.log("testinggg");
       const user = await prisma.users.findFirst({
         where: {
           username: username,

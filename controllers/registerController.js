@@ -23,7 +23,10 @@ exports.registerUserPost = [
       const { username, password } = req.body;
       const hashedPassword = await bcrypt.hash(password, 10);
       await createUser(username, hashedPassword);
-      return res.redirect("/login");
+      req.flash("success", [{ msg: "Registered successfully" }]);
+      return req.session.save(() => {
+        res.redirect("/login");
+      });
     } catch (err) {
       next(err);
     }
