@@ -1,5 +1,5 @@
 const multer = require("multer");
-const { uploadFile } = require("../db/query");
+const { uploadFile, getRootFolder } = require("../db/query");
 const { fileValidator } = require("../middlewares/validations");
 const { validationResult } = require("express-validator");
 const upload = multer({ dest: "uploads/" });
@@ -17,9 +17,14 @@ exports.fileUploadPost = [
           res.redirect(referer);
         });
       }
-      const id = req.user.id;
       const { path, originalname, size } = req.file;
-      await uploadFile(id, path, originalname, size);
+      let folderId = req.params?.folderId;
+      if (!folderId) {
+        const id = req.user.id;
+        const rootFolder = await getRootFolder(id);
+        folderId = rootFolder.id
+      }
+      await uploadFile(folderId, path, originalname, size);
       req.flash("success", [{ msg: "Successfully uploaded file" }]);
       return req.session.save(() => {
         res.redirect(referer);
