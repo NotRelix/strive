@@ -22,10 +22,14 @@ exports.folderListGet = async (req, res) => {
     isImage: isImage(file.fileName),
     isZip: isZip(file.fileName),
   }));
+  const formattedFolders = root.subfolders.map((folder) => ({
+    ...folder,
+    formatCreatedAt: formatShortDate(folder.createdAt),
+  }));
   res.render("foldersPage", {
     title: "Strive",
     files: formattedFiles,
-    folders: root.subfolders,
+    folders: formattedFolders,
   });
 };
 
@@ -40,7 +44,7 @@ exports.folderAddPost = async (req, res, next) => {
       parentId = rootFolder.id;
     }
     await addFolder(userId, folderName, parentId);
-    const referer = req.get("Referer") || "/"
+    const referer = req.get("Referer") || "/";
     return res.redirect(referer);
   } catch (err) {
     next(err);
