@@ -24,4 +24,5 @@ plusAddFileBtn.addEventListener("click", () => {
 
 plusAddFolderBtn.addEventListener("click", () => {
   addFolderModal.classList.add("show");
+  addFolderInput.focus();
 })

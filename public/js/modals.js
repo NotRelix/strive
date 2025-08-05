@@ -5,7 +5,9 @@ const addFileCloseBtn = addFileModal.querySelector(".add-file-close-btn");
 
 const addFolderBtn = document.querySelector(".add-folder-btn");
 const addFolderModal = document.querySelector(".add-folder-modal");
+const addFolderInput = addFolderModal.querySelector("input");
 const addFolderCloseBtn = document.querySelector(".add-folder-close-btn");
+const addFolderForm = document.querySelector(".add-folder-form");
 const backdrop = document.querySelector(".backdrop");
 
 addFileBtn.addEventListener("click", () => {
@@ -21,7 +23,13 @@ addFileForm.addEventListener("submit", () => {
 addFolderBtn.addEventListener("click", () => {
   addFolderModal.classList.add("show");
   backdrop.classList.add("show");
+  addFolderInput.focus();
 });
+
+addFolderForm.addEventListener("submit", () => {
+  addFolderModal.classList.remove("show");
+  backdrop.classList.remove("show");
+})
 
 document.addEventListener("click", (e) => {
   if (
