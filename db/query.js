@@ -69,9 +69,27 @@ async function createRootFolder(userId) {
   }
 }
 
+async function getRootFolder(userId) {
+  try {
+    const rootFolder = await prisma.folders.findFirst({
+      where: {
+        userId: userId,
+      },
+      include: {
+        files: true,
+        subfolders: true,
+      }
+    });
+    return rootFolder;
+  } catch (err) {
+    console.error("Failed to get root folder: ", err);
+  }
+}
+
 module.exports = {
   getUser,
   createUser,
   uploadFile,
   getFiles,
+  getRootFolder,
 };

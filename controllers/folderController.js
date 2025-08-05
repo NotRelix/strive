@@ -1,5 +1,5 @@
 const { formatBytes } = require("bytes-formatter");
-const { getFiles } = require("../db/query");
+const { getFiles, getRootFolder } = require("../db/query");
 const { formatShortDate } = require("../public/js/formatDate");
 
 const imageTypes = ["png", "jpg", "jpeg", "webp"];
@@ -14,13 +14,13 @@ function isZip(fileName) {
 
 exports.folderListGet = async (req, res) => {
   const userId = req.user.id;
-  const files = await getFiles(userId);
-  const formattedFiles = files.map((file) => ({
+  const root = await getRootFolder(userId);
+  const formattedFiles = root.files.map((file) => ({
     ...file,
-    formatCreatedAt: formatShortDate(file.createdAt),
-    formatSize: formatBytes(file.size),
-    isImage: isImage(file.fileName),
-    isZip: isZip(file.fileName),
+    formatCreatedAt: formatShortDate(root.files.createdAt),
+    formatSize: formatBytes(root.files.size),
+    isImage: isImage(root.files.fileName),
+    isZip: isZip(root.files.fileName),
   }));
   res.render("foldersPage", {
     title: "Strive",
