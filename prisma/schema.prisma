@@ -11,18 +11,7 @@ model Users {
   id       Int       @id @default(autoincrement())
   username String    @unique
   password String
-  files    Files[]
-  folder   Folders[]
-}
-
-model Files {
-  id        Int      @id @default(autoincrement())
-  path      String
-  createdAt DateTime @default(now())
-  fileName  String
-  size      Float
-  users     Users    @relation(fields: [userId], references: [id])
-  userId    Int
+  folders   Folders[]
 }
 
 model Folders {
@@ -31,9 +20,21 @@ model Folders {
   user   Users  @relation(fields: [userId], references: [id])
   userId Int
 
-  parent     Folders   @relation("FolderToFolder", fields: [parentId], references: [id])
-  parentId   Int
+  parent     Folders?   @relation("FolderToFolder", fields: [parentId], references: [id])
+  parentId   Int?
   subfolders Folders[] @relation("FolderToFolder")
+
+  files    Files[]
+}
+
+model Files {
+  id        Int      @id @default(autoincrement())
+  path      String
+  createdAt DateTime @default(now())
+  fileName  String
+  size      Float
+  folder Folders    @relation(fields: [folderId], references: [id])
+  folderId    Int
 }
 
 model Session {

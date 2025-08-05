@@ -15,12 +15,13 @@ async function getUser(username) {
 
 async function createUser(username, password) {
   try {
-    await prisma.users.create({
+    const user = await prisma.users.create({
       data: {
         username: username,
         password: password,
       },
     });
+    await createRootFolder(user.id);
   } catch (err) {
     console.error("Failed creating user: ", err);
   }
@@ -51,6 +52,20 @@ async function getFiles(userId) {
     return files;
   } catch (err) {
     console.error("Failed to get files: ", err);
+  }
+}
+
+async function createRootFolder(userId) {
+  try {
+    await prisma.folders.create({
+      data: {
+        userId,
+        parentId: null,
+        name: "My Drive",
+      },
+    });
+  } catch (err) {
+    console.error("Failed to create root folder: ", err);
   }
 }
 
