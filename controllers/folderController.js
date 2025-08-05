@@ -40,6 +40,8 @@ exports.folderAddPost = async (req, res, next) => {
       parentId = rootFolder.id;
     }
     await addFolder(userId, folderName, parentId);
+    const referer = req.get("Referer") || "/"
+    return res.redirect(referer);
   } catch (err) {
     next(err);
   }
