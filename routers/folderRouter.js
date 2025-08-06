@@ -10,5 +10,6 @@ folderRouter.get(
 );
 
 folderRouter.post("/add", folderController.folderAddPost);
+folderRouter.get("/:folderId", folderController.subfolderListGet);
 
 module.exports = folderRouter;

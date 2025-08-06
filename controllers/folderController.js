@@ -50,3 +50,13 @@ exports.folderAddPost = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.subfolderListGet = (req, res) => {
+  const { folderId } = req.params;
+  console.log(folderId);
+  res.render("foldersPage", {
+    title: "Subfolder",
+    files: [],
+    folders: [],
+  })
+}
