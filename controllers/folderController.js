@@ -58,10 +58,21 @@ exports.subfolderListGet = async (req, res) => {
   const userId = req.user.id;
   const { folderId } = req.params;
   const subfolder = await getSubfolder(userId, folderId);
+  const formattedFiles = subfolder.files.map((file) => ({
+    ...file,
+    formatCreatedAt: formatShortDate(file.createdAt),
+    formatSize: formatBytes(file.size),
+    isImage: isImage(file.fileName),
+    isZip: isZip(file.fileName),
+  }));
+  const formattedFolders = subfolder.subfolders.map((folder) => ({
+    ...folder,
+    formatCreatedAt: formatShortDate(folder.createdAt),
+  }));
   res.render("foldersPage", {
     title: "Subfolder",
-    files: [],
-    folders: [],
+    files: formattedFiles,
+    folders: formattedFolders,
     folderId: folderId,
   });
 };
