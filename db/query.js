@@ -108,9 +108,9 @@ async function addFolder(userId, name, parentId) {
   try {
     await prisma.folders.create({
       data: {
-        userId,
+        userId: parseInt(userId, 10),
         name,
-        parentId,
+        parentId: parseInt(parentId, 10),
       },
     });
   } catch (err) {
