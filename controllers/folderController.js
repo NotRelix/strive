@@ -1,5 +1,5 @@
 const { formatBytes } = require("bytes-formatter");
-const { getRootFolder, addFolder } = require("../db/query");
+const { getRootFolder, addFolder, getSubfolder } = require("../db/query");
 const { formatShortDate } = require("../public/js/formatDate");
 
 const imageTypes = ["png", "jpg", "jpeg", "webp"];
@@ -26,10 +26,13 @@ exports.folderListGet = async (req, res) => {
     ...folder,
     formatCreatedAt: formatShortDate(folder.createdAt),
   }));
+  const rootFolder = await getRootFolder(userId);
+  const folderId = rootFolder.id;
   res.render("foldersPage", {
     title: "Strive",
     files: formattedFiles,
     folders: formattedFolders,
+    folderId: folderId,
   });
 };
 
@@ -51,12 +54,14 @@ exports.folderAddPost = async (req, res, next) => {
   }
 };
 
-exports.subfolderListGet = (req, res) => {
+exports.subfolderListGet = async (req, res) => {
+  const userId = req.user.id;
   const { folderId } = req.params;
-  console.log(folderId);
+  const subfolder = await getSubfolder(userId, folderId);
   res.render("foldersPage", {
     title: "Subfolder",
     files: [],
     folders: [],
-  })
-}
+    folderId: folderId,
+  });
+};

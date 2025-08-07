@@ -32,9 +32,9 @@ async function uploadFile(folderId, path, fileName, size) {
     await prisma.files.create({
       data: {
         path,
-        folderId,
         fileName,
         size,
+        folderId: parseInt(folderId, 10),
       },
     });
   } catch (err) {
@@ -73,7 +73,7 @@ async function getRootFolder(userId) {
   try {
     const rootFolder = await prisma.folders.findFirst({
       where: {
-        userId: userId,
+        userId: parseInt(userId, 10),
       },
       include: {
         files: true,
@@ -83,6 +83,24 @@ async function getRootFolder(userId) {
     return rootFolder;
   } catch (err) {
     console.error("Failed to get root folder: ", err);
+  }
+}
+
+async function getSubfolder(userId, folderId) {
+  try {
+    const subfolder = await prisma.folders.findFirst({
+      where: {
+        id: parseInt(folderId, 10),
+        userId: parseInt(userId, 10),
+      },
+      include: {
+        files: true,
+        subfolders: true,
+      },
+    });
+    return subfolder;
+  } catch (err) {
+    console.error("Failed to get subfolder: ", err);
   }
 }
 
@@ -106,5 +124,6 @@ module.exports = {
   uploadFile,
   getFiles,
   getRootFolder,
+  getSubfolder,
   addFolder,
 };
