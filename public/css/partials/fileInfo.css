@@ -9,10 +9,23 @@
   height: 100%;
   padding: 16px;
   z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.file-info-top-section {
+  display: flex;
+  align-items: center;
 }
 
 .file-info-container.show {
   transform: translateX(0);
+}
+
+.file-info-container h1 {
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .file-info-container svg {
@@ -25,4 +38,21 @@
 
 .file-info-container svg:hover {
   background-color: var(--primary-hover);
+}
+
+.file-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.file-info-content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.file-info-details {
+  color: var(--secondary-text-light);
 }
