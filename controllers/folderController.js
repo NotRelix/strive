@@ -73,7 +73,6 @@ exports.subfolderListGet = async (req, res) => {
     isImage: isImage(file.fileName),
     isZip: isZip(file.fileName),
   }));
-  console.log(formattedFiles);
   const formattedFolders = subfolder.subfolders.map((folder) => ({
     ...folder,
     formatCreatedAt: formatShortDate(folder.createdAt),

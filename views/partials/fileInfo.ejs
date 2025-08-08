@@ -18,6 +18,11 @@
     </svg>
   </div>
   <div class="file-info-content">
+    <% if (file.isImage) { %>
+      <div class="file-info-img-container">
+        <img src="/<%= file.path %>" alt="<%= file.fileName %>">
+      </div>
+    <% } %>
     <div class="file-info-content-section">
       <span>File</span>
       <span class="file-info-details"><%= file.fileName %></span>

@@ -5,13 +5,15 @@
   transform: translateX(100%);
   transition: transform 300ms cubic-bezier(0.301, 0.395, 0.408, 1.163);
   background-color: var(--primary-bg);
-  min-width: 300px;
+  max-width: 300px;
+  width: 100%;
   height: 100%;
   padding: 16px;
   z-index: 300;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  overflow-y: scroll;
 }
 
 .file-info-top-section {
@@ -46,6 +48,16 @@
   gap: 24px;
 }
 
+.file-info-img-container {
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.file-info-img-container img {
+  width: 100%;
+}
+
 .file-info-content-section {
   display: flex;
   flex-direction: column;
@@ -55,4 +67,13 @@
 
 .file-info-details {
   color: var(--secondary-text-light);
+}
+
+@media (max-width: 380px) {
+  .file-info-container {
+    min-width: auto;
+    max-width: 100%;
+    width: 100%;
+    transition: transform 300ms ease;
+  }
 }
