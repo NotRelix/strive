@@ -1,0 +1,6 @@
+<div>
+  <% parentFolders.forEach((parentFolder) => { %>
+    <a href="<%= parentFolder.id %>"><%= parentFolder.name %></a>
+  <% }) %>
+  <a href="<%= currentFolder.id %>"><%= currentFolder.name %></a>
+</div>

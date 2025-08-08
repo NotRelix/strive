@@ -4,6 +4,7 @@ const {
   addFolder,
   getSubfolder,
   getParentFolder,
+  getCurrentFolder,
 } = require("../db/query");
 const { formatShortDate } = require("../public/js/formatDate");
 
@@ -38,6 +39,8 @@ exports.folderListGet = async (req, res) => {
     files: formattedFiles,
     folders: formattedFolders,
     folderId: folderId,
+    parentFolders: [],
+    currentFolder: rootFolder,
   });
 };
 
@@ -75,17 +78,19 @@ exports.subfolderListGet = async (req, res) => {
     formatCreatedAt: formatShortDate(folder.createdAt),
   }));
   let parentId = subfolder.parentId;
-  const parentFolders = []
+  const parentFolders = [];
   while (parentId !== null) {
     const parentFolder = await getParentFolder(userId, parentId);
     parentFolders.unshift(parentFolder);
     parentId = parentFolder.parentId;
   }
-  console.log(parentFolders);
+  const currentFolder = await getCurrentFolder(userId, folderId);
   res.render("foldersPage", {
     title: "Subfolder",
     files: formattedFiles,
     folders: formattedFolders,
     folderId: folderId,
+    parentFolders: parentFolders,
+    currentFolder: currentFolder,
   });
 };

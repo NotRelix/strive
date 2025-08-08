@@ -86,6 +86,20 @@ async function getRootFolder(userId) {
   }
 }
 
+async function getCurrentFolder(userId, folderId) {
+  try {
+    const currentFolder = await prisma.folders.findFirst({
+      where: {
+        userId: parseInt(userId, 10),
+        id: parseInt(folderId, 10),
+      },
+    });
+    return currentFolder;
+  } catch (err) {
+    console.error("Failed to get current folder: ", err);
+  }
+}
+
 async function getSubfolder(userId, folderId) {
   try {
     const subfolder = await prisma.folders.findFirst({
@@ -138,6 +152,7 @@ module.exports = {
   uploadFile,
   getFiles,
   getRootFolder,
+  getCurrentFolder,
   getSubfolder,
   addFolder,
   getParentFolder,
