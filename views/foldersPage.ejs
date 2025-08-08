@@ -15,11 +15,13 @@
     <link rel="stylesheet" href="/css/partials/drivePlusBtn.css" />
     <link rel="stylesheet" href="/css/partials/parentHierarchy.css" />
     <link rel="stylesheet" href="/css/partials/loading.css" />
+    <link rel="stylesheet" href="/css/partials/fileInfo.css" />
     <script src="/js/modals.js" defer></script>
     <script src="/js/drivePlusBtn.js" defer></script>
     <script src="/js/errors.js" defer></script>
     <script src="/js/parentHierarchy.js" defer></script>
     <script src="/js/loading.js" defer></script>
+    <script src="/js/fileInfo.js" defer></script>
   </head>
   <body>
     <%- include("partials/navbar") %>
@@ -31,6 +33,7 @@
         <%- include("partials/errors") %> <%- include("partials/tools") %>
         <%- include("partials/success") %>
         <div class="drive-container">
+          <%- include("partials/fileInfo") %>
           <h1 class="drive-name"><%= currentFolder.name %></h1>
           <%- include("partials/parentHierarchy", {parentFolders, currentFolder}) %>
           <% if (folders && folders.length > 0 || files && files.length > 0) { %>
