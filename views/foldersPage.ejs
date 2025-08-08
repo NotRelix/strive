@@ -17,6 +17,7 @@
     <script src="/js/modals.js" defer></script>
     <script src="/js/drivePlusBtn.js" defer></script>
     <script src="/js/errors.js" defer></script>
+    <script src="/js/parentHierarchy.js" defer></script>
   </head>
   <body>
     <%- include("partials/navbar") %>
@@ -27,7 +28,7 @@
         <%- include("partials/errors") %> <%- include("partials/tools") %>
         <%- include("partials/success") %>
         <div class="drive-container">
-          <h1 class="drive-name">My Drive</h1>
+          <h1 class="drive-name"><%= currentFolder.name %></h1>
           <%- include("partials/parentHierarchy", {parentFolders, currentFolder}) %>
           <% if (folders && folders.length > 0 || files && files.length > 0) { %>
             <div class="drive-contents">

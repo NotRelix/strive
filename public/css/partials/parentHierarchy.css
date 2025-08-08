@@ -3,6 +3,12 @@
   display: flex;
   gap: 12px;
   overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.parent-hierarchy::-webkit-scrollbar {
+  display: none;
 }
 
 .parent-hierarchy a {
