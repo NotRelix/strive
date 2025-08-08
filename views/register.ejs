@@ -8,16 +8,19 @@
     <link rel="stylesheet" href="/css/partials/navbar.css" />
     <link rel="stylesheet" href="/css/partials/notification.css" />
     <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/partials/loading.css" />
     <script src="/js/errors.js" defer></script>
+    <script src="/js/loading.js" defer></script>
   </head>
   <body>
     <%- include("partials/navbar") %>
+    <%- include("partials/loading") %>
     <main>
       <div class="container">
         <%- include("partials/errors") %>
         <h1 class="container-header">Register</h1>
         <p class="container-redirect">
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <a href="/login" data-href="/login">Login</a>
         </p>
         <form action="/register" method="post">
           <div class="input-container">

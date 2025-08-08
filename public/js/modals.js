@@ -15,7 +15,7 @@ addFileBtn.addEventListener("click", () => {
   backdrop.classList.add("show");
 });
 
-addFileForm.addEventListener("submit", () => {
+window.addEventListener("load", () => {
   addFileModal.classList.remove("show");
   backdrop.classList.remove("show");
 });
@@ -26,7 +26,7 @@ addFolderBtn.addEventListener("click", () => {
   addFolderInput.focus();
 });
 
-addFolderForm.addEventListener("submit", () => {
+window.addEventListener("load", () => {
   addFolderModal.classList.remove("show");
   backdrop.classList.remove("show");
 })

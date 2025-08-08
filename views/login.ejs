@@ -8,17 +8,20 @@
     <link rel="stylesheet" href="/css/partials/navbar.css" />
     <link rel="stylesheet" href="/css/partials/notification.css" />
     <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/partials/loading.css" />
     <script src="/js/errors.js" defer></script>
+    <script src="/js/loading.js" defer></script>
   </head>
   <body>
     <%- include("partials/navbar") %>
+    <%- include("partials/loading") %>
     <main>
       <div class="container">
         <%- include("partials/errors") %>
         <%- include("partials/success") %>
         <h1 class="container-header">Login</h1>
         <p class="container-redirect">
-          Don't have an account yet? <a href="/register">Register</a>
+          Don't have an account yet? <a href="/register" data-href="/register">Register</a>
         </p>
         <form action="/login" method="post">
           <div class="input-container">

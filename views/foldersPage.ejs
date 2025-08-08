@@ -14,15 +14,18 @@
     <link rel="stylesheet" href="/css/partials/backdrop.css" />
     <link rel="stylesheet" href="/css/partials/drivePlusBtn.css" />
     <link rel="stylesheet" href="/css/partials/parentHierarchy.css" />
+    <link rel="stylesheet" href="/css/partials/loading.css" />
     <script src="/js/modals.js" defer></script>
     <script src="/js/drivePlusBtn.js" defer></script>
     <script src="/js/errors.js" defer></script>
     <script src="/js/parentHierarchy.js" defer></script>
+    <script src="/js/loading.js" defer></script>
   </head>
   <body>
     <%- include("partials/navbar") %>
     <%- include("partials/addFileModal") %>
     <%- include("partials/addFolderModal") %>
+    <%- include("partials/loading") %>
     <main>
       <div class="container">
         <%- include("partials/errors") %> <%- include("partials/tools") %>
