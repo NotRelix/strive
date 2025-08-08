@@ -33,4 +33,5 @@ main {
 .empty-drive-container {
   text-align: center;
   color: var(--secondary-text-light);
+  margin-top: 16px;
 }

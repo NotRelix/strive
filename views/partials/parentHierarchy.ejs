@@ -1,6 +1,7 @@
-<div>
+<div class="parent-hierarchy">
   <% parentFolders.forEach((parentFolder) => { %>
     <a href="<%= parentFolder.id %>"><%= parentFolder.name %></a>
+    <span>></span>
   <% }) %>
-  <a href="<%= currentFolder.id %>"><%= currentFolder.name %></a>
+  <a href="<%= currentFolder.id %>" class="current-folder"><%= currentFolder.name %></a>
 </div>

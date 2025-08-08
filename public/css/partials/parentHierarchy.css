@@ -1,0 +1,26 @@
+.parent-hierarchy {
+  padding: 4px 0;
+  display: flex;
+  gap: 12px;
+  overflow-x: scroll;
+}
+
+.parent-hierarchy a {
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.parent-hierarchy span {
+  font-weight: 200;
+  cursor: default;
+}
+
+.parent-hierarchy a,
+.parent-hierarchy span {
+  color: var(--secondary-text);
+  font-size: 14px;
+}
+
+.parent-hierarchy .current-folder {
+  color: var(--link-text);
+}
