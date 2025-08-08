@@ -118,6 +118,20 @@ async function addFolder(userId, name, parentId) {
   }
 }
 
+async function getParentFolder(userId, parentId) {
+  try {
+    const parentFolder = await prisma.folders.findFirst({
+      where: {
+        userId: parseInt(userId, 10),
+        id: parseInt(parentId, 10),
+      },
+    });
+    return parentFolder;
+  } catch (err) {
+    console.error("Failed to get parent folder: ", err);
+  }
+}
+
 module.exports = {
   getUser,
   createUser,
@@ -126,4 +140,5 @@ module.exports = {
   getRootFolder,
   getSubfolder,
   addFolder,
+  getParentFolder,
 };

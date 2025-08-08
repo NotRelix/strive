@@ -1,5 +1,10 @@
 const { formatBytes } = require("bytes-formatter");
-const { getRootFolder, addFolder, getSubfolder } = require("../db/query");
+const {
+  getRootFolder,
+  addFolder,
+  getSubfolder,
+  getParentFolder,
+} = require("../db/query");
 const { formatShortDate } = require("../public/js/formatDate");
 
 const imageTypes = ["png", "jpg", "jpeg", "webp"];
@@ -69,6 +74,14 @@ exports.subfolderListGet = async (req, res) => {
     ...folder,
     formatCreatedAt: formatShortDate(folder.createdAt),
   }));
+  let parentId = subfolder.parentId;
+  const parentFolders = []
+  while (parentId !== null) {
+    const parentFolder = await getParentFolder(userId, parentId);
+    parentFolders.unshift(parentFolder);
+    parentId = parentFolder.parentId;
+  }
+  console.log(parentFolders);
   res.render("foldersPage", {
     title: "Subfolder",
     files: formattedFiles,
