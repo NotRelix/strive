@@ -1,6 +1,6 @@
-.backdrop {
+.backdrop,
+.body-backdrop {
   position: fixed;
-  top: 0;
   left: 0;
   z-index: 200;
   width: 100%;
@@ -10,6 +10,10 @@
   overflow: auto;
   transition: opacity 200ms ease;
   pointer-events: none;
+}
+
+.backdrop {
+  top: 0;
 }
 
 .show {
