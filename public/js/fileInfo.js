@@ -1,17 +1,26 @@
-const fileInfoContainer = document.querySelector(".file-info-container");
+const fileInfoContainer = document.querySelectorAll(".file-info-container");
 const bodyBackdrop = document.querySelector(".body-backdrop");
-const fileInfoContainerClose = document.querySelector(
+const fileInfoContainerClose = document.querySelectorAll(
   ".file-info-container-close"
 );
 
-function openFileInfo() {
-  fileInfoContainer.classList.add("show");
+function openFileInfo(index) {
+  fileInfoContainer[index].classList.add("show");
   bodyBackdrop.classList.add("show");
 }
 
 document.addEventListener("click", (e) => {
-  if (e.target === bodyBackdrop || e.target === fileInfoContainerClose) {
-    fileInfoContainer.classList.remove("show");
+  if (e.target === bodyBackdrop) {
+    fileInfoContainer.forEach((container) => {
+      container.classList.remove("show");
+    })
     bodyBackdrop.classList.remove("show");
   }
+  
+  fileInfoContainerClose.forEach((closeBtn, index) => {
+    if (e.target === closeBtn) {
+      fileInfoContainer[index].classList.remove("show");
+      bodyBackdrop.classList.remove("show");
+    }
+  })
 });

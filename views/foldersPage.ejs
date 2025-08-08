@@ -34,7 +34,6 @@
         <%- include("partials/errors") %> <%- include("partials/tools") %>
         <%- include("partials/success") %>
         <div class="drive-container">
-          <%- include("partials/fileInfo") %>
           <h1 class="drive-name"><%= currentFolder.name %></h1>
           <%- include("partials/parentHierarchy", {parentFolders, currentFolder}) %>
           <% if (folders && folders.length > 0 || files && files.length > 0) { %>
@@ -43,9 +42,10 @@
                 <%- include("partials/folderCard",
                 {folder}) %>
               <% }) %>
-              <% files.forEach((file) => { %>
-              <%- include("partials/fileCard",
-              {file}) %>
+              <% files.forEach((file, index) => { %>
+                <%- include("partials/fileCard",
+              {file, index}) %>
+              <%- include("partials/fileInfo", {file}) %>
               <% }) %>
             </div>
           <% } else { %>
