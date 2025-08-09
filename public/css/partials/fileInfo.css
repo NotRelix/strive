@@ -69,6 +69,24 @@
   color: var(--secondary-text-light);
 }
 
+.file-info-buttons {
+  flex-direction: row;
+}
+
+.file-info-buttons button {
+  flex: 1;
+  padding: 8px;
+  background-color: var(--button-bg);
+  color: var(--secondary-text-light);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-info-buttons button:hover {
+  background-color: var(--button-hover);
+}
+
 @media (max-width: 380px) {
   .file-info-container {
     min-width: auto;
