@@ -27,11 +27,11 @@ async function createUser(username, password) {
   }
 }
 
-async function uploadFile(folderId, path, fileName, size) {
+async function uploadFile(folderId, publicUrl, fileName, size) {
   try {
     await prisma.files.create({
       data: {
-        path,
+        publicUrl,
         fileName,
         size,
         folderId: parseInt(folderId, 10),

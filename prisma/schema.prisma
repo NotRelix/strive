@@ -5,6 +5,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
 model Users {
@@ -30,7 +31,7 @@ model Folders {
 
 model Files {
   id        Int      @id @default(autoincrement())
-  path      String
+  publicUrl String
   createdAt DateTime @default(now())
   fileName  String
   size      Float

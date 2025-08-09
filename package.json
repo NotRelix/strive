@@ -23,6 +23,7 @@
   "dependencies": {
     "@prisma/client": "^6.13.0",
     "@quixo3/prisma-session-store": "^3.1.13",
+    "@supabase/supabase-js": "^2.54.0",
     "bcryptjs": "^3.0.2",
     "bytes-formatter": "^21.6.15",
     "connect-flash": "^0.1.1",
