@@ -16,7 +16,7 @@ exports.loginUserPost = [
       if (!errors.isEmpty()) {
         const allErrors = errors.array();
         const authError = allErrors.find(
-          (error) => error.msg === "Invalid login attempt"
+          (error) => error.msg === "Invalid login attempt",
         );
         req.flash("errors", authError ? [authError] : allErrors);
         return req.session.save(() => {

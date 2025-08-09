@@ -28,13 +28,16 @@ exports.fileUploadPost = [
         const rootFolder = await getRootFolder(id);
         folderId = rootFolder.id;
       }
-
-      const fileName = `${Date.now()}-${originalname}`;
+      const safeOriginalName = originalname
+        .normalize("NFKD")
+        .replace(/[^\x00-\x7F]/g, "")
+        .replace(/\s+/g, "_");
+      const fileName = `${Date.now()}-${safeOriginalName}`;
       const { data, error } = await supabase.storage
         .from("uploads")
         .upload(fileName, buffer, { contentType: mimetype });
       if (error) throw error;
-      const { publicUrl } = await supabase.storage
+      const { publicUrl } = supabase.storage
         .from("uploads")
         .getPublicUrl(fileName).data;
       await uploadFile(folderId, publicUrl, originalname, size);

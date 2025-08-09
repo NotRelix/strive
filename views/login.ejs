@@ -17,11 +17,11 @@
     <%- include("partials/loading") %>
     <main>
       <div class="container">
-        <%- include("partials/errors") %>
-        <%- include("partials/success") %>
+        <%- include("partials/errors") %> <%- include("partials/success") %>
         <h1 class="container-header">Login</h1>
         <p class="container-redirect">
-          Don't have an account yet? <a href="/register" data-href="/register">Register</a>
+          Don't have an account yet?
+          <a href="/register" data-href="/register">Register</a>
         </p>
         <form action="/login" method="post">
           <div class="input-container">

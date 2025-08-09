@@ -29,7 +29,7 @@ addFolderBtn.addEventListener("click", () => {
 window.addEventListener("load", () => {
   addFolderModal.classList.remove("show");
   backdrop.classList.remove("show");
-})
+});
 
 document.addEventListener("click", (e) => {
   if (

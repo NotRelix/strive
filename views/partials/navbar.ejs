@@ -1,6 +1,10 @@
 <nav>
   <div class="logo-container">
-    <a href="<%= (locals.user) ? '/folders' : '/login' %>" data-href="<%= (locals.user) ? '/folders' : '/login' %>">Strive</a>
+    <a
+      href="<%= (locals.user) ? '/folders' : '/login' %>"
+      data-href="<%= (locals.user) ? '/folders' : '/login' %>"
+      >Strive</a
+    >
   </div>
   <div class="nav-links">
     <% if (locals.user) { %>

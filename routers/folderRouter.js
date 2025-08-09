@@ -6,7 +6,7 @@ const { redirectIfNotAuthenticated } = require("../middlewares/auth");
 folderRouter.get(
   "/",
   redirectIfNotAuthenticated,
-  folderController.folderListGet
+  folderController.folderListGet,
 );
 
 folderRouter.post("/:folderId/add", folderController.folderAddPost);

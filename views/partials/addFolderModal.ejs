@@ -17,7 +17,11 @@
         />
       </svg>
     </div>
-    <form class="add-folder-form" action="/folders/<%= locals.folderId %>/add" method="post">
+    <form
+      class="add-folder-form"
+      action="/folders/<%= locals.folderId %>/add"
+      method="post"
+    >
       <input type="text" name="folderName" placeholder="Folder name" required />
       <button type="submit">Add</button>
     </form>
